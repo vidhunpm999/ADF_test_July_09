@@ -1,0 +1,15 @@
+{
+	"name": "adlfdevdubbyproject",
+	"properties": {
+		"trustModeClaimForMi": {
+			"value": "Disabled",
+			"editable": true
+		}
+	},
+	"location": "centralindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "9fe7e502-246e-4ad3-9b79-4666aff627c2",
+		"tenantId": "ea23e46e-dcd1-4e2c-8511-d59e1514af6c"
+	}
+}

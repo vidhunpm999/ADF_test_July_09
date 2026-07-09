@@ -1,0 +1,13 @@
+{
+	"name": "LS_blob_lookup_view",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"description": "Implementing look up and filter as part of practical",
+		"annotations": [],
+		"type": "AzureBlobStorage",
+		"typeProperties": {
+			"connectionString": "DefaultEndpointsProtocol=https;AccountName=blobdevdubbyproject;EndpointSuffix=core.windows.net;",
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQDBDQzg1MjgzLTUxRUQtNDI2NC1BRUU3LUIyRDkzQkM2QjQxRF9iMTQ3MTYzZS1mNTM3LTQwMmItOGE2NS00MTM2ODU1YWI0ODIiDQp9"
+		}
+	}
+}

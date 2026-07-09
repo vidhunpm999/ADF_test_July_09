@@ -1,0 +1,13 @@
+{
+	"name": "LS_filter_sales",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"description": "filter the sales file only from the folder ",
+		"annotations": [],
+		"type": "AzureBlobStorage",
+		"typeProperties": {
+			"connectionString": "DefaultEndpointsProtocol=https;AccountName=blobdevdubbyproject;EndpointSuffix=core.windows.net;",
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQDBDQzg1MjgzLTUxRUQtNDI2NC1BRUU3LUIyRDkzQkM2QjQxRF80NWYxMTg3ZC0xOWU3LTRkYWEtOWNmOS1mYjdlMDZlZmZhZWUiDQp9"
+		}
+	}
+}
