@@ -1,0 +1,188 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "adlfdevdubbyproject"
+		},
+		"AzureBlobStorage1_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage1'"
+		},
+		"LS_API_parquet_adls_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_API_parquet_adls'"
+		},
+		"LS_adls_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_adls'"
+		},
+		"LS_all_csv_adls_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_all_csv_adls'"
+		},
+		"LS_blob_all_csv_adls_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'LS_blob_all_csv_adls'"
+		},
+		"LS_blob_csv_adls_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'LS_blob_csv_adls'"
+		},
+		"LS_blob_lookup_view_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'LS_blob_lookup_view'"
+		},
+		"LS_csv_output_adls_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_csv_output_adls'"
+		},
+		"LS_filetrfilefromfolderto adls_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_filetrfilefromfolderto adls'"
+		},
+		"LS_filter_sales_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'LS_filter_sales'"
+		},
+		"LS_new_blo_sales_filter_adls_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'LS_new_blo_sales_filter_adls'"
+		},
+		"LS_output_binery_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_output_binery'"
+		},
+		"LS_API_parquet_adls_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsdevdubbyproject.dfs.core.windows.net/"
+		},
+		"LS_adls_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsdevdubbyproject.dfs.core.windows.net/"
+		},
+		"LS_all_csv_adls_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsdevdubbyproject.dfs.core.windows.net/"
+		},
+		"LS_csv_output_adls_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsdevdubbyproject.dfs.core.windows.net/"
+		},
+		"LS_filetrfilefromfolderto adls_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsdevdubbyproject.dfs.core.windows.net/"
+		},
+		"LS_output_binery_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsdevdubbyproject.dfs.core.windows.net/"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "adlfdevdubbyproject_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"AzureBlobStorage1_connectionString": {
+						"value": "[parameters('AzureBlobStorage1_connectionString')]"
+					},
+					"LS_API_parquet_adls_accountKey": {
+						"value": "[parameters('LS_API_parquet_adls_accountKey')]"
+					},
+					"LS_adls_accountKey": {
+						"value": "[parameters('LS_adls_accountKey')]"
+					},
+					"LS_all_csv_adls_accountKey": {
+						"value": "[parameters('LS_all_csv_adls_accountKey')]"
+					},
+					"LS_blob_all_csv_adls_connectionString": {
+						"value": "[parameters('LS_blob_all_csv_adls_connectionString')]"
+					},
+					"LS_blob_csv_adls_connectionString": {
+						"value": "[parameters('LS_blob_csv_adls_connectionString')]"
+					},
+					"LS_blob_lookup_view_connectionString": {
+						"value": "[parameters('LS_blob_lookup_view_connectionString')]"
+					},
+					"LS_csv_output_adls_accountKey": {
+						"value": "[parameters('LS_csv_output_adls_accountKey')]"
+					},
+					"LS_filetrfilefromfolderto adls_accountKey": {
+						"value": "[parameters('LS_filetrfilefromfolderto adls_accountKey')]"
+					},
+					"LS_filter_sales_connectionString": {
+						"value": "[parameters('LS_filter_sales_connectionString')]"
+					},
+					"LS_new_blo_sales_filter_adls_connectionString": {
+						"value": "[parameters('LS_new_blo_sales_filter_adls_connectionString')]"
+					},
+					"LS_output_binery_accountKey": {
+						"value": "[parameters('LS_output_binery_accountKey')]"
+					},
+					"LS_API_parquet_adls_properties_typeProperties_url": {
+						"value": "[parameters('LS_API_parquet_adls_properties_typeProperties_url')]"
+					},
+					"LS_adls_properties_typeProperties_url": {
+						"value": "[parameters('LS_adls_properties_typeProperties_url')]"
+					},
+					"LS_all_csv_adls_properties_typeProperties_url": {
+						"value": "[parameters('LS_all_csv_adls_properties_typeProperties_url')]"
+					},
+					"LS_csv_output_adls_properties_typeProperties_url": {
+						"value": "[parameters('LS_csv_output_adls_properties_typeProperties_url')]"
+					},
+					"LS_filetrfilefromfolderto adls_properties_typeProperties_url": {
+						"value": "[parameters('LS_filetrfilefromfolderto adls_properties_typeProperties_url')]"
+					},
+					"LS_output_binery_properties_typeProperties_url": {
+						"value": "[parameters('LS_output_binery_properties_typeProperties_url')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "adlfdevdubbyproject_ArmTemplate_1",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'adlfdevdubbyproject_ArmTemplate_0')]"
+			]
+		}
+	]
+}

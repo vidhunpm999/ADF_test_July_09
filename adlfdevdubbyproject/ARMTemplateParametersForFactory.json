@@ -1,0 +1,63 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "adlfdevdubbyproject"
+		},
+		"AzureBlobStorage1_connectionString": {
+			"value": ""
+		},
+		"LS_API_parquet_adls_accountKey": {
+			"value": ""
+		},
+		"LS_adls_accountKey": {
+			"value": ""
+		},
+		"LS_all_csv_adls_accountKey": {
+			"value": ""
+		},
+		"LS_blob_all_csv_adls_connectionString": {
+			"value": ""
+		},
+		"LS_blob_csv_adls_connectionString": {
+			"value": ""
+		},
+		"LS_blob_lookup_view_connectionString": {
+			"value": ""
+		},
+		"LS_csv_output_adls_accountKey": {
+			"value": ""
+		},
+		"LS_filetrfilefromfolderto adls_accountKey": {
+			"value": ""
+		},
+		"LS_filter_sales_connectionString": {
+			"value": ""
+		},
+		"LS_new_blo_sales_filter_adls_connectionString": {
+			"value": ""
+		},
+		"LS_output_binery_accountKey": {
+			"value": ""
+		},
+		"LS_API_parquet_adls_properties_typeProperties_url": {
+			"value": "https://adlsdevdubbyproject.dfs.core.windows.net/"
+		},
+		"LS_adls_properties_typeProperties_url": {
+			"value": "https://adlsdevdubbyproject.dfs.core.windows.net/"
+		},
+		"LS_all_csv_adls_properties_typeProperties_url": {
+			"value": "https://adlsdevdubbyproject.dfs.core.windows.net/"
+		},
+		"LS_csv_output_adls_properties_typeProperties_url": {
+			"value": "https://adlsdevdubbyproject.dfs.core.windows.net/"
+		},
+		"LS_filetrfilefromfolderto adls_properties_typeProperties_url": {
+			"value": "https://adlsdevdubbyproject.dfs.core.windows.net/"
+		},
+		"LS_output_binery_properties_typeProperties_url": {
+			"value": "https://adlsdevdubbyproject.dfs.core.windows.net/"
+		}
+	}
+}
