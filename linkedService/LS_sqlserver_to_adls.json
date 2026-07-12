@@ -1,0 +1,22 @@
+{
+	"name": "LS_sqlserver_to_adls",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"description": "moving data from sql to adls",
+		"annotations": [],
+		"type": "SqlServer",
+		"typeProperties": {
+			"server": "Agni",
+			"database": "RetailDW_Dev",
+			"encrypt": "mandatory",
+			"trustServerCertificate": false,
+			"authenticationType": "SQL",
+			"userName": "Agni",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiI1NzI2NDQxZi0wNzNjLTQyMzQtODUxYi1iNzQ0YzRiNWQxODkiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "integrationRuntime1",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}
