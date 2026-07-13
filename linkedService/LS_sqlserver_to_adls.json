@@ -8,11 +8,11 @@
 		"typeProperties": {
 			"server": "Agni\\SQLEXPRESS",
 			"database": "RetailDW_Dev",
-			"encrypt": "mandatory",
+			"encrypt": "optional",
 			"trustServerCertificate": false,
 			"authenticationType": "SQL",
 			"userName": "Agni",
-			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiJiNzNlZGRlOS1hMjgzLTRhYWQtOTc5YS1kNzlhMzM1YzRmYjUiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiI2ZTJiMzBlOC1kMDg5LTQyYWItOWRiYy0zZTMyMDZjNDI2ZjMiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
 		},
 		"connectVia": {
 			"referenceName": "integrationRuntime1",
