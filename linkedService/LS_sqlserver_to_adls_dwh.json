@@ -1,0 +1,22 @@
+{
+	"name": "LS_sqlserver_to_adls_dwh",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"description": "sql server to dwh ",
+		"annotations": [],
+		"type": "SqlServer",
+		"typeProperties": {
+			"server": "Agni\\SQLEXPRESS",
+			"database": "RetailDW_Dev",
+			"encrypt": "mandatory",
+			"trustServerCertificate": true,
+			"authenticationType": "SQL",
+			"userName": "Agni",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiIzMmY1NzlhZi03MGYzLTQyYzMtOWM0OC02NjZmMzk2OTcxOWEiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "integrationRuntime1",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}
