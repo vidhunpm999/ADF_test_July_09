@@ -1,5 +1,5 @@
 {
-	"name": "pipeline7",
+	"name": "PL_sqlserver_adls_sp",
 	"properties": {
 		"activities": [
 			{
