@@ -4,19 +4,19 @@
 		"parameters": {
 			"TableSchema": {
 				"type": "string",
-				"defaultValue": "@item.TableSchema"
+				"defaultValue": "@item().TableSchema"
 			},
 			"TableName": {
 				"type": "string",
-				"defaultValue": "@item.TableName"
+				"defaultValue": "@item().TableName"
 			},
 			"WatermarkColumn": {
 				"type": "string",
-				"defaultValue": "@item.WatermarkColumn"
+				"defaultValue": "@item().WatermarkColumn"
 			},
 			"LastLoadValue": {
 				"type": "string",
-				"defaultValue": "@item.LastLoadValue"
+				"defaultValue": "@item().LastLoadValue"
 			}
 		},
 		"annotations": []
