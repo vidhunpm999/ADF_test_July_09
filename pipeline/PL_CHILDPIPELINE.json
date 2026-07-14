@@ -49,6 +49,11 @@
 				}
 			}
 		],
+		"parameters": {
+			"TableSchema": {
+				"type": "string"
+			}
+		},
 		"annotations": []
 	}
 }
