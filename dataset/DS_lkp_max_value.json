@@ -1,0 +1,12 @@
+{
+	"name": "DS_lkp_max_value",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_lkp_max_value",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": []
+	}
+}

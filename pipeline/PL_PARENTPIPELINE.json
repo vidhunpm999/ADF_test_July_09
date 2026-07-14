@@ -59,7 +59,7 @@
 									"referenceName": "PL_CHILDPIPELINE",
 									"type": "PipelineReference"
 								},
-								"waitOnCompletion": false,
+								"waitOnCompletion": true,
 								"parameters": {
 									"TableSchema": {
 										"value": "@item().TableSchema",
