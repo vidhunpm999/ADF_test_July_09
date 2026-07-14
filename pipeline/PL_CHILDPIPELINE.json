@@ -57,7 +57,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"expression": {
-						"value": "@or(equals(pipeline().parameters.LastLoadValue, null), greater(int(activity('LKUP_MAX_VALUE').output.firstRow.MaxValue), int(pipeline().parameters.LastLoadValue)))",
+						"value": "@or(equals(pipeline().parameters.LastLoadValue, null), greater(int(activity('LKP_Incremental').output.firstRow.MaxValue), int(pipeline().parameters.LastLoadValue)))",
 						"type": "Expression"
 					},
 					"ifTrueActivities": [
@@ -77,6 +77,7 @@
 							"typeProperties": {
 								"source": {
 									"type": "SqlServerSource",
+									"sqlReaderQuery": "@concat(\n    'SELECT * FROM ',\n    pipeline().parameters.TableSchema, '.', pipeline().parameters.TableName,\n    if(\n        equals(pipeline().parameters.LastLoadValue, null),\n        '', \n        concat(\n            ' WHERE ', pipeline().parameters.WatermarkColumn,\n            ' > ''', pipeline().parameters.LastLoadValue, ''''\n        )\n    )\n)\n",
 									"queryTimeout": "02:00:00",
 									"partitionOption": "None"
 								},
