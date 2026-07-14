@@ -1,0 +1,24 @@
+{
+	"name": "pipeline2",
+	"properties": {
+		"parameters": {
+			"TableSchema": {
+				"type": "string",
+				"defaultValue": "@item.TableSchema"
+			},
+			"TableName": {
+				"type": "string",
+				"defaultValue": "@item.TableName"
+			},
+			"WatermarkColumn": {
+				"type": "string",
+				"defaultValue": "@item.WatermarkColumn"
+			},
+			"LastLoadValue": {
+				"type": "string",
+				"defaultValue": "@item.LastLoadValue"
+			}
+		},
+		"annotations": []
+	}
+}
