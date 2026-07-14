@@ -43,7 +43,8 @@
 				}
 			},
 			{
-				"name": "If Condition1",
+				"name": "in condition childpipeline",
+				"description": "",
 				"type": "IfCondition",
 				"dependsOn": [
 					{
@@ -57,7 +58,8 @@
 				"typeProperties": {
 					"ifTrueActivities": [
 						{
-							"name": "Copy data1",
+							"name": "copy_tables_to_adlsgen2",
+							"description": "copy the table to adls",
 							"type": "Copy",
 							"dependsOn": [],
 							"policy": {
@@ -69,15 +71,27 @@
 							},
 							"userProperties": [],
 							"typeProperties": {
+								"source": {
+									"type": "SqlServerSource",
+									"queryTimeout": "02:00:00",
+									"partitionOption": "None"
+								},
 								"enableStaging": false
-							}
+							},
+							"inputs": [
+								{
+									"referenceName": "SqlServerTable2",
+									"type": "DatasetReference"
+								}
+							]
 						},
 						{
-							"name": "Execute Pipeline1",
+							"name": "Execute sqlsererv sp",
+							"description": "invoke the sp in sql server",
 							"type": "ExecutePipeline",
 							"dependsOn": [
 								{
-									"activity": "Copy data1",
+									"activity": "copy_tables_to_adlsgen2",
 									"dependencyConditions": [
 										"Succeeded"
 									]
