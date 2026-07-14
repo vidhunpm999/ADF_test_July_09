@@ -1,0 +1,22 @@
+{
+	"name": "LS_sqlserver_to_adls_sp",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"description": "sql server to adls stored procedure",
+		"annotations": [],
+		"type": "SqlServer",
+		"typeProperties": {
+			"server": "Agni\\SQLEXPRESS",
+			"database": "RetailDW_Dev",
+			"encrypt": "mandatory",
+			"trustServerCertificate": true,
+			"authenticationType": "SQL",
+			"userName": "Agni",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiIzMWUzMmVkNS00NTE5LTQ5NmEtYmVlZS03N2I5Y2IzZGIyNjMiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "integrationRuntime1",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}
