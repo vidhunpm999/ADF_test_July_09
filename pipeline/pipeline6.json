@@ -1,0 +1,11 @@
+{
+	"name": "pipeline6",
+	"properties": {
+		"parameters": {
+			"TableSchema": {
+				"type": "string"
+			}
+		},
+		"annotations": []
+	}
+}
