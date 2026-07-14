@@ -29,7 +29,7 @@
 						"referenceName": "DS_lkp_max_value",
 						"type": "DatasetReference"
 					},
-					"firstRowOnly": true
+					"firstRowOnly": false
 				}
 			},
 			{
