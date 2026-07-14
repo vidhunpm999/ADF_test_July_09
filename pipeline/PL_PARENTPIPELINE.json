@@ -3,7 +3,8 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Lookup1",
+				"name": "Lookup_sqlserver_to_adls",
+				"description": "pull data from sql server to adls",
 				"type": "Lookup",
 				"dependsOn": [],
 				"policy": {
@@ -13,14 +14,37 @@
 					"secureOutput": false,
 					"secureInput": false
 				},
-				"userProperties": []
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "SqlServerSource",
+						"sqlReaderQuery": "SELECT TableSchema, TableName, WatermarkColumn, LastLoadValue FROM dbo.ADF_Watermark_Table;",
+						"queryTimeout": "02:00:00",
+						"partitionOption": "None"
+					},
+					"dataset": {
+						"referenceName": "SqlServerTable1",
+						"type": "DatasetReference"
+					}
+				}
 			},
 			{
 				"name": "ForEach1",
 				"type": "ForEach",
-				"dependsOn": [],
+				"dependsOn": [
+					{
+						"activity": "Lookup_sqlserver_to_adls",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
 				"userProperties": [],
 				"typeProperties": {
+					"items": {
+						"value": "@activity('Lookup_sqlserver_to_adls').output.value",
+						"type": "Expression"
+					},
 					"activities": [
 						{
 							"name": "Execute Pipeline1",
@@ -35,7 +59,7 @@
 									"referenceName": "PL_CHILDPIPELINE",
 									"type": "PipelineReference"
 								},
-								"waitOnCompletion": true
+								"waitOnCompletion": false
 							}
 						}
 					]
