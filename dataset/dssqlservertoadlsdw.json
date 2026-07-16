@@ -20,7 +20,7 @@
 					"type": "Expression"
 				},
 				"folderPath": {
-					"value": "@concat(dataset().TableName,'/',formatDateTime(utcNow(),'yyyy/MM/dd’))\n",
+					"value": "@concat(dataset().TableName,'/',formatDateTime(utcNow(),'yyyy/MM/dd'))",
 					"type": "Expression"
 				},
 				"fileSystem": "sqlservertoadls"
