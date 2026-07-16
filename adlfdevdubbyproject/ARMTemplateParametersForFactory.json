@@ -35,10 +35,34 @@
 		"LS_filter_sales_connectionString": {
 			"value": ""
 		},
+		"LS_lkp_max_value_password": {
+			"value": ""
+		},
+		"LS_load_data_to_adls_accountKey": {
+			"value": ""
+		},
 		"LS_new_blo_sales_filter_adls_connectionString": {
 			"value": ""
 		},
 		"LS_output_binery_accountKey": {
+			"value": ""
+		},
+		"LS_parquet_sqlserver_to_adls_dw_accountKey": {
+			"value": ""
+		},
+		"LS_sqlserver_adls_password": {
+			"value": ""
+		},
+		"LS_sqlserver_adls_childpipeline_password": {
+			"value": ""
+		},
+		"LS_sqlserver_to_adls_password": {
+			"value": ""
+		},
+		"LS_sqlserver_to_adls_dwh_password": {
+			"value": ""
+		},
+		"LS_sqlserver_to_adls_sp_password": {
 			"value": ""
 		},
 		"LS_API_parquet_adls_properties_typeProperties_url": {
@@ -56,8 +80,68 @@
 		"LS_filetrfilefromfolderto adls_properties_typeProperties_url": {
 			"value": "https://adlsdevdubbyproject.dfs.core.windows.net/"
 		},
+		"LS_lkp_max_value_properties_typeProperties_server": {
+			"value": "Agni\\SQLEXPRESS"
+		},
+		"LS_lkp_max_value_properties_typeProperties_database": {
+			"value": "RetailDW_Dev"
+		},
+		"LS_lkp_max_value_properties_typeProperties_userName": {
+			"value": "Agni"
+		},
+		"LS_load_data_to_adls_properties_typeProperties_url": {
+			"value": "https://adlsdevdubbyproject.dfs.core.windows.net/"
+		},
 		"LS_output_binery_properties_typeProperties_url": {
 			"value": "https://adlsdevdubbyproject.dfs.core.windows.net/"
+		},
+		"LS_parquet_sqlserver_to_adls_dw_properties_typeProperties_url": {
+			"value": "https://adlsdevdubbyproject.dfs.core.windows.net/"
+		},
+		"LS_sqlserver_adls_properties_typeProperties_server": {
+			"value": "Agni\\SQLEXPRESS"
+		},
+		"LS_sqlserver_adls_properties_typeProperties_database": {
+			"value": "RetailDW_Dev"
+		},
+		"LS_sqlserver_adls_properties_typeProperties_userName": {
+			"value": "Agni"
+		},
+		"LS_sqlserver_adls_childpipeline_properties_typeProperties_server": {
+			"value": "Agni\\SQLEXPRESS"
+		},
+		"LS_sqlserver_adls_childpipeline_properties_typeProperties_database": {
+			"value": "RetailDW_Dev"
+		},
+		"LS_sqlserver_adls_childpipeline_properties_typeProperties_userName": {
+			"value": "Agni"
+		},
+		"LS_sqlserver_to_adls_properties_typeProperties_server": {
+			"value": "Agni\\SQLEXPRESS"
+		},
+		"LS_sqlserver_to_adls_properties_typeProperties_database": {
+			"value": "RetailDW_Dev"
+		},
+		"LS_sqlserver_to_adls_properties_typeProperties_userName": {
+			"value": "Agni"
+		},
+		"LS_sqlserver_to_adls_dwh_properties_typeProperties_server": {
+			"value": "Agni\\SQLEXPRESS"
+		},
+		"LS_sqlserver_to_adls_dwh_properties_typeProperties_database": {
+			"value": "RetailDW_Dev"
+		},
+		"LS_sqlserver_to_adls_dwh_properties_typeProperties_userName": {
+			"value": "Agni"
+		},
+		"LS_sqlserver_to_adls_sp_properties_typeProperties_server": {
+			"value": "Agni\\SQLEXPRESS"
+		},
+		"LS_sqlserver_to_adls_sp_properties_typeProperties_database": {
+			"value": "RetailDW_Dev"
+		},
+		"LS_sqlserver_to_adls_sp_properties_typeProperties_userName": {
+			"value": "Agni"
 		}
 	}
 }

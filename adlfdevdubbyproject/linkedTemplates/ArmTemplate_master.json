@@ -47,6 +47,14 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'LS_filter_sales'"
 		},
+		"LS_lkp_max_value_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'LS_lkp_max_value'"
+		},
+		"LS_load_data_to_adls_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_load_data_to_adls'"
+		},
 		"LS_new_blo_sales_filter_adls_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'LS_new_blo_sales_filter_adls'"
@@ -54,6 +62,30 @@
 		"LS_output_binery_accountKey": {
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'LS_output_binery'"
+		},
+		"LS_parquet_sqlserver_to_adls_dw_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_parquet_sqlserver_to_adls_dw'"
+		},
+		"LS_sqlserver_adls_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'LS_sqlserver_adls'"
+		},
+		"LS_sqlserver_adls_childpipeline_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'LS_sqlserver_adls_childpipeline'"
+		},
+		"LS_sqlserver_to_adls_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'LS_sqlserver_to_adls'"
+		},
+		"LS_sqlserver_to_adls_dwh_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'LS_sqlserver_to_adls_dwh'"
+		},
+		"LS_sqlserver_to_adls_sp_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'LS_sqlserver_to_adls_sp'"
 		},
 		"LS_API_parquet_adls_properties_typeProperties_url": {
 			"type": "string",
@@ -75,9 +107,89 @@
 			"type": "string",
 			"defaultValue": "https://adlsdevdubbyproject.dfs.core.windows.net/"
 		},
+		"LS_lkp_max_value_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "Agni\\SQLEXPRESS"
+		},
+		"LS_lkp_max_value_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "RetailDW_Dev"
+		},
+		"LS_lkp_max_value_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "Agni"
+		},
+		"LS_load_data_to_adls_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsdevdubbyproject.dfs.core.windows.net/"
+		},
 		"LS_output_binery_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://adlsdevdubbyproject.dfs.core.windows.net/"
+		},
+		"LS_parquet_sqlserver_to_adls_dw_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsdevdubbyproject.dfs.core.windows.net/"
+		},
+		"LS_sqlserver_adls_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "Agni\\SQLEXPRESS"
+		},
+		"LS_sqlserver_adls_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "RetailDW_Dev"
+		},
+		"LS_sqlserver_adls_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "Agni"
+		},
+		"LS_sqlserver_adls_childpipeline_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "Agni\\SQLEXPRESS"
+		},
+		"LS_sqlserver_adls_childpipeline_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "RetailDW_Dev"
+		},
+		"LS_sqlserver_adls_childpipeline_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "Agni"
+		},
+		"LS_sqlserver_to_adls_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "Agni\\SQLEXPRESS"
+		},
+		"LS_sqlserver_to_adls_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "RetailDW_Dev"
+		},
+		"LS_sqlserver_to_adls_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "Agni"
+		},
+		"LS_sqlserver_to_adls_dwh_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "Agni\\SQLEXPRESS"
+		},
+		"LS_sqlserver_to_adls_dwh_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "RetailDW_Dev"
+		},
+		"LS_sqlserver_to_adls_dwh_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "Agni"
+		},
+		"LS_sqlserver_to_adls_sp_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "Agni\\SQLEXPRESS"
+		},
+		"LS_sqlserver_to_adls_sp_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "RetailDW_Dev"
+		},
+		"LS_sqlserver_to_adls_sp_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "Agni"
 		},
 		"containerUri": {
 			"type": "string",
@@ -177,6 +289,90 @@
 				"parameters": {
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
+					},
+					"LS_lkp_max_value_password": {
+						"value": "[parameters('LS_lkp_max_value_password')]"
+					},
+					"LS_load_data_to_adls_accountKey": {
+						"value": "[parameters('LS_load_data_to_adls_accountKey')]"
+					},
+					"LS_parquet_sqlserver_to_adls_dw_accountKey": {
+						"value": "[parameters('LS_parquet_sqlserver_to_adls_dw_accountKey')]"
+					},
+					"LS_sqlserver_adls_password": {
+						"value": "[parameters('LS_sqlserver_adls_password')]"
+					},
+					"LS_sqlserver_adls_childpipeline_password": {
+						"value": "[parameters('LS_sqlserver_adls_childpipeline_password')]"
+					},
+					"LS_sqlserver_to_adls_password": {
+						"value": "[parameters('LS_sqlserver_to_adls_password')]"
+					},
+					"LS_sqlserver_to_adls_dwh_password": {
+						"value": "[parameters('LS_sqlserver_to_adls_dwh_password')]"
+					},
+					"LS_sqlserver_to_adls_sp_password": {
+						"value": "[parameters('LS_sqlserver_to_adls_sp_password')]"
+					},
+					"LS_lkp_max_value_properties_typeProperties_server": {
+						"value": "[parameters('LS_lkp_max_value_properties_typeProperties_server')]"
+					},
+					"LS_lkp_max_value_properties_typeProperties_database": {
+						"value": "[parameters('LS_lkp_max_value_properties_typeProperties_database')]"
+					},
+					"LS_lkp_max_value_properties_typeProperties_userName": {
+						"value": "[parameters('LS_lkp_max_value_properties_typeProperties_userName')]"
+					},
+					"LS_load_data_to_adls_properties_typeProperties_url": {
+						"value": "[parameters('LS_load_data_to_adls_properties_typeProperties_url')]"
+					},
+					"LS_parquet_sqlserver_to_adls_dw_properties_typeProperties_url": {
+						"value": "[parameters('LS_parquet_sqlserver_to_adls_dw_properties_typeProperties_url')]"
+					},
+					"LS_sqlserver_adls_properties_typeProperties_server": {
+						"value": "[parameters('LS_sqlserver_adls_properties_typeProperties_server')]"
+					},
+					"LS_sqlserver_adls_properties_typeProperties_database": {
+						"value": "[parameters('LS_sqlserver_adls_properties_typeProperties_database')]"
+					},
+					"LS_sqlserver_adls_properties_typeProperties_userName": {
+						"value": "[parameters('LS_sqlserver_adls_properties_typeProperties_userName')]"
+					},
+					"LS_sqlserver_adls_childpipeline_properties_typeProperties_server": {
+						"value": "[parameters('LS_sqlserver_adls_childpipeline_properties_typeProperties_server')]"
+					},
+					"LS_sqlserver_adls_childpipeline_properties_typeProperties_database": {
+						"value": "[parameters('LS_sqlserver_adls_childpipeline_properties_typeProperties_database')]"
+					},
+					"LS_sqlserver_adls_childpipeline_properties_typeProperties_userName": {
+						"value": "[parameters('LS_sqlserver_adls_childpipeline_properties_typeProperties_userName')]"
+					},
+					"LS_sqlserver_to_adls_properties_typeProperties_server": {
+						"value": "[parameters('LS_sqlserver_to_adls_properties_typeProperties_server')]"
+					},
+					"LS_sqlserver_to_adls_properties_typeProperties_database": {
+						"value": "[parameters('LS_sqlserver_to_adls_properties_typeProperties_database')]"
+					},
+					"LS_sqlserver_to_adls_properties_typeProperties_userName": {
+						"value": "[parameters('LS_sqlserver_to_adls_properties_typeProperties_userName')]"
+					},
+					"LS_sqlserver_to_adls_dwh_properties_typeProperties_server": {
+						"value": "[parameters('LS_sqlserver_to_adls_dwh_properties_typeProperties_server')]"
+					},
+					"LS_sqlserver_to_adls_dwh_properties_typeProperties_database": {
+						"value": "[parameters('LS_sqlserver_to_adls_dwh_properties_typeProperties_database')]"
+					},
+					"LS_sqlserver_to_adls_dwh_properties_typeProperties_userName": {
+						"value": "[parameters('LS_sqlserver_to_adls_dwh_properties_typeProperties_userName')]"
+					},
+					"LS_sqlserver_to_adls_sp_properties_typeProperties_server": {
+						"value": "[parameters('LS_sqlserver_to_adls_sp_properties_typeProperties_server')]"
+					},
+					"LS_sqlserver_to_adls_sp_properties_typeProperties_database": {
+						"value": "[parameters('LS_sqlserver_to_adls_sp_properties_typeProperties_database')]"
+					},
+					"LS_sqlserver_to_adls_sp_properties_typeProperties_userName": {
+						"value": "[parameters('LS_sqlserver_to_adls_sp_properties_typeProperties_userName')]"
 					}
 				}
 			},
