@@ -5,6 +5,14 @@
 			"referenceName": "LS_sqlserver_adls_childpipeline",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"TableName": {
+				"type": "string"
+			},
+			"TableSchema": {
+				"type": "string"
+			}
+		},
 		"annotations": [],
 		"type": "SqlServerTable",
 		"schema": []
