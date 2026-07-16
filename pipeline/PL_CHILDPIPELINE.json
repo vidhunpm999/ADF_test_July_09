@@ -73,14 +73,7 @@
 								"secureOutput": false,
 								"secureInput": false
 							},
-							"userProperties": [
-								{
-									"name": "TableName"
-								},
-								{
-									"name": "TableSchema"
-								}
-							],
+							"userProperties": [],
 							"typeProperties": {
 								"source": {
 									"type": "SqlServerSource",
@@ -113,7 +106,17 @@
 							"inputs": [
 								{
 									"referenceName": "SqlServerTable2",
-									"type": "DatasetReference"
+									"type": "DatasetReference",
+									"parameters": {
+										"TableName": {
+											"value": "@pipeline().parameters.TableName",
+											"type": "Expression"
+										},
+										"TableSchema": {
+											"value": "@pipeline().parameters.TableSchema",
+											"type": "Expression"
+										}
+									}
 								}
 							],
 							"outputs": [
