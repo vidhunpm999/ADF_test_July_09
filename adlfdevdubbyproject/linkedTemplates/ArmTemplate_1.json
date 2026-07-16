@@ -837,7 +837,7 @@
 									}
 								}
 							},
-							"firstRowOnly": true
+							"firstRowOnly": false
 						}
 					},
 					{
