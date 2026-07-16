@@ -73,7 +73,14 @@
 								"secureOutput": false,
 								"secureInput": false
 							},
-							"userProperties": [],
+							"userProperties": [
+								{
+									"name": "TableName"
+								},
+								{
+									"name": "TableSchema"
+								}
+							],
 							"typeProperties": {
 								"source": {
 									"type": "SqlServerSource",
