@@ -257,7 +257,7 @@
 						"userProperties": [],
 						"typeProperties": {
 							"expression": {
-								"value": "@or(equals(pipeline().parameters.LastLoadValue, null), greater(int(activity('LKP_Incremental').output.value[0].MaxValue), int(pipeline().parameters.LastLoadValue)))",
+								"value": "@or(equals(pipeline().parameters.LastLoadValue, null), greater(int(activity('LKP_Incremental').output.firstRow.MaxValue), int(pipeline().parameters.LastLoadValue)))",
 								"type": "Expression"
 							},
 							"ifTrueActivities": [
