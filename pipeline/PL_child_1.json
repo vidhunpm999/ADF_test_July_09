@@ -1,36 +1,20 @@
 {
 	"name": "PL_child_1",
 	"properties": {
-		"description": "child pipeline will get data from the parent.\nTo check the max value   ",
-		"activities": [
-			{
-				"name": "LKUP_MAX_VALUE",
-				"description": "To check the max value from the data.",
-				"type": "Lookup",
-				"dependsOn": [],
-				"policy": {
-					"timeout": "0.12:00:00",
-					"retry": 0,
-					"retryIntervalInSeconds": 30,
-					"secureOutput": false,
-					"secureInput": false
-				},
-				"userProperties": []
+		"parameters": {
+			"TableSchema": {
+				"type": "string"
 			},
-			{
-				"name": "If Condition1",
-				"type": "IfCondition",
-				"dependsOn": [
-					{
-						"activity": "LKUP_MAX_VALUE",
-						"dependencyConditions": [
-							"Succeeded"
-						]
-					}
-				],
-				"userProperties": []
+			"TableName": {
+				"type": "string"
+			},
+			"WatermarkColumn": {
+				"type": "string"
+			},
+			"LastLoadValue": {
+				"type": "string"
 			}
-		],
+		},
 		"annotations": []
 	}
 }
