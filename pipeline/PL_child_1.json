@@ -23,13 +23,7 @@
 					},
 					"dataset": {
 						"referenceName": "DS_LKUP_MAX_VALUE",
-						"type": "DatasetReference",
-						"parameters": {
-							"TableSchema": {
-								"value": "@pipeline().parameters.TableSchema",
-								"type": "Expression"
-							}
-						}
+						"type": "DatasetReference"
 					},
 					"firstRowOnly": true
 				}

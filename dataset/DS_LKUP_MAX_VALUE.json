@@ -5,14 +5,6 @@
 			"referenceName": "LS_LKUP_MAX_VALUE",
 			"type": "LinkedServiceReference"
 		},
-		"parameters": {
-			"TableSchema": {
-				"type": "string"
-			},
-			"TableName": {
-				"type": "string"
-			}
-		},
 		"annotations": [],
 		"type": "SqlServerTable",
 		"schema": []
