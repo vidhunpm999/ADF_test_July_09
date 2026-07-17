@@ -1,0 +1,35 @@
+{
+	"name": "DS_sql_table_Parquet1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_sqlserver_child_if",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"TableName": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "@concat(dataset().Table_Name,'_',formatDateTime(utcNow(),'yyyyMMddHHmmss'),'.parquet')",
+				"folderPath": "@concat(dataset().Table_Name,'/',formatDateTime(utcNow(),'yyyy/MM/dd’))",
+				"fileSystem": "sqlservertoadls"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": [
+			{
+				"name": "CategoryKey",
+				"type": "INT32"
+			},
+			{
+				"name": "CategoryName",
+				"type": "UTF8"
+			}
+		]
+	}
+}
