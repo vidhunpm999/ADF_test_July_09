@@ -19,7 +19,7 @@
 				"typeProperties": {
 					"source": {
 						"type": "SqlServerSource",
-						"sqlReaderQuery": "SELECT TableSchema,TableName,WatermarkColumn,LastLoadValue\n  FROM dbo.ADF_Watermark_Table\n",
+						"sqlReaderQuery": "SELECT TableSchema,TableName,WatermarkColumn,LastLoadValue\n  FROM [RetailDW_Dev].[dbo].[ADF_Watermark_Table]\n",
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
