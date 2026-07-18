@@ -4,7 +4,7 @@
 		"activities": [
 			{
 				"name": "LKUP_MAX_VALUE",
-				"description": "To check the max value from the data.",
+				"description": "child pipeline to find the max value ",
 				"type": "Lookup",
 				"dependsOn": [],
 				"policy": {
@@ -18,23 +18,15 @@
 				"typeProperties": {
 					"source": {
 						"type": "SqlServerSource",
-						"sqlReaderQuery": {
-							"value": "MAX(@{pipeline().parameters.WatermarkColumn}) AS MaxValue\nFROM @{pipeline().parameters.TableSchema}.@{pipeline().parameters.TableName}\n",
-							"type": "Expression"
-						},
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
 					"dataset": {
-						"referenceName": "DS_LKUP_MAX_VALUE",
+						"referenceName": "SD_MAX_VALUE_1",
 						"type": "DatasetReference",
 						"parameters": {
 							"TableSchema": {
 								"value": "@pipeline().parameters.TableSchema",
-								"type": "Expression"
-							},
-							"TableName": {
-								"value": "@pipeline().parameters.TableName",
 								"type": "Expression"
 							}
 						}
@@ -53,123 +45,7 @@
 						]
 					}
 				],
-				"userProperties": [],
-				"typeProperties": {
-					"expression": {
-						"value": "@or(equals(pipeline().parameters.LastLoadValue, null), greater(int(activity('LKUP_MAX_VALUE').output.value[0].MaxValue), int(pipeline().parameters.LastLoadValue)))",
-						"type": "Expression"
-					},
-					"ifTrueActivities": [
-						{
-							"name": "copy_sql_full_in_control_load_table",
-							"type": "Copy",
-							"dependsOn": [],
-							"policy": {
-								"timeout": "0.12:00:00",
-								"retry": 0,
-								"retryIntervalInSeconds": 30,
-								"secureOutput": false,
-								"secureInput": false
-							},
-							"userProperties": [],
-							"typeProperties": {
-								"source": {
-									"type": "SqlServerSource",
-									"sqlReaderQuery": {
-										"value": "@concat(\n    'SELECT * FROM ',\n    pipeline().parameters.TableSchema, '.', pipeline().parameters.TableName,\n    if(\n        equals(pipeline().parameters.LastLoadValue, null),\n        '', \n        concat(\n            ' WHERE ', pipeline().parameters.WatermarkColumn,\n            ' > ''', pipeline().parameters.LastLoadValue, ''''\n        )\n    )\n)\n",
-										"type": "Expression"
-									},
-									"queryTimeout": "02:00:00",
-									"partitionOption": "None"
-								},
-								"sink": {
-									"type": "ParquetSink",
-									"storeSettings": {
-										"type": "AzureBlobFSWriteSettings"
-									},
-									"formatSettings": {
-										"type": "ParquetWriteSettings"
-									}
-								},
-								"enableStaging": false,
-								"translator": {
-									"type": "TabularTranslator",
-									"typeConversion": true,
-									"typeConversionSettings": {
-										"allowDataTruncation": true,
-										"treatBooleanAsNumber": false
-									}
-								}
-							},
-							"inputs": [
-								{
-									"referenceName": "DS_LKUP_MAX_VALUE",
-									"type": "DatasetReference",
-									"parameters": {
-										"TableSchema": {
-											"value": "@pipeline().parameters.TableSchema",
-											"type": "Expression"
-										},
-										"TableName": {
-											"value": "@pipeline().parameters.TableName",
-											"type": "Expression"
-										}
-									}
-								}
-							],
-							"outputs": [
-								{
-									"referenceName": "DS_sql_table_Parquet1",
-									"type": "DatasetReference",
-									"parameters": {
-										"TableName": {
-											"value": "@pipeline().parameters.TableName",
-											"type": "Expression"
-										}
-									}
-								}
-							]
-						},
-						{
-							"name": "Execute stored procedure",
-							"description": "invoke stored procedure ",
-							"type": "ExecutePipeline",
-							"dependsOn": [
-								{
-									"activity": "copy_sql_full_in_control_load_table",
-									"dependencyConditions": [
-										"Succeeded"
-									]
-								}
-							],
-							"policy": {
-								"secureInput": false
-							},
-							"userProperties": [],
-							"typeProperties": {
-								"pipeline": {
-									"referenceName": "PL_stored_proedure",
-									"type": "PipelineReference"
-								},
-								"waitOnCompletion": true,
-								"parameters": {
-									"TableSchema": {
-										"value": "@pipeline().parameters.TableSchema",
-										"type": "Expression"
-									},
-									"TableName": {
-										"value": "@pipeline().parameters.TableName",
-										"type": "Expression"
-									},
-									"WatermarkColumn": {
-										"value": "@pipeline().parameters.WatermarkColumn",
-										"type": "Expression"
-									}
-								}
-							}
-						}
-					]
-				}
+				"userProperties": []
 			}
 		],
 		"parameters": {
