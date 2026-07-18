@@ -11,6 +11,9 @@
 		"LS_API_parquet_adls_accountKey": {
 			"value": ""
 		},
+		"LS_LKUP_MAX_VALUE_password": {
+			"value": ""
+		},
 		"LS_adls_accountKey": {
 			"value": ""
 		},
@@ -56,6 +59,9 @@
 		"LS_sqlserver_adls_childpipeline_password": {
 			"value": ""
 		},
+		"LS_sqlserver_child_if_accountKey": {
+			"value": ""
+		},
 		"LS_sqlserver_to_adls_password": {
 			"value": ""
 		},
@@ -65,8 +71,23 @@
 		"LS_sqlserver_to_adls_sp_password": {
 			"value": ""
 		},
+		"LS_sqlserver_watermark_lkup_password": {
+			"value": ""
+		},
+		"LS_stopredprocedure_dw_password": {
+			"value": ""
+		},
 		"LS_API_parquet_adls_properties_typeProperties_url": {
 			"value": "https://adlsdevdubbyproject.dfs.core.windows.net/"
+		},
+		"LS_LKUP_MAX_VALUE_properties_typeProperties_server": {
+			"value": "Agni\\SQLEXPRESS"
+		},
+		"LS_LKUP_MAX_VALUE_properties_typeProperties_database": {
+			"value": "RetailDW_Dev"
+		},
+		"LS_LKUP_MAX_VALUE_properties_typeProperties_userName": {
+			"value": "Agni"
 		},
 		"LS_adls_properties_typeProperties_url": {
 			"value": "https://adlsdevdubbyproject.dfs.core.windows.net/"
@@ -116,6 +137,9 @@
 		"LS_sqlserver_adls_childpipeline_properties_typeProperties_userName": {
 			"value": "Agni"
 		},
+		"LS_sqlserver_child_if_properties_typeProperties_url": {
+			"value": "https://adlsdevdubbyproject.dfs.core.windows.net/"
+		},
 		"LS_sqlserver_to_adls_properties_typeProperties_server": {
 			"value": "Agni\\SQLEXPRESS"
 		},
@@ -141,6 +165,24 @@
 			"value": "RetailDW_Dev"
 		},
 		"LS_sqlserver_to_adls_sp_properties_typeProperties_userName": {
+			"value": "Agni"
+		},
+		"LS_sqlserver_watermark_lkup_properties_typeProperties_server": {
+			"value": "Agni\\SQLEXPRESS"
+		},
+		"LS_sqlserver_watermark_lkup_properties_typeProperties_database": {
+			"value": "RetailDW_Dev"
+		},
+		"LS_sqlserver_watermark_lkup_properties_typeProperties_userName": {
+			"value": "Agni"
+		},
+		"LS_stopredprocedure_dw_properties_typeProperties_server": {
+			"value": "Agni\\SQLEXPRESS"
+		},
+		"LS_stopredprocedure_dw_properties_typeProperties_database": {
+			"value": "RetailDW_Dev"
+		},
+		"LS_stopredprocedure_dw_properties_typeProperties_userName": {
 			"value": "Agni"
 		},
 		"containerUri": {
