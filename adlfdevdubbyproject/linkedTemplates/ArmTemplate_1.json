@@ -31,9 +31,17 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'LS_sqlserver_adls_childpipeline'"
 		},
+		"LS_sqlserver_adls_dw_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_sqlserver_adls_dw'"
+		},
 		"LS_sqlserver_child_if_accountKey": {
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'LS_sqlserver_child_if'"
+		},
+		"LS_sqlserver_max_value_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'LS_sqlserver_max_value'"
 		},
 		"LS_sqlserver_to_adls_password": {
 			"type": "secureString",
@@ -50,6 +58,10 @@
 		"LS_sqlserver_watermark_lkup_password": {
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'LS_sqlserver_watermark_lkup'"
+		},
+		"LS_sqlsever_DataLakeStorage1_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_sqlsever_DataLakeStorage1'"
 		},
 		"LS_stopredprocedure_dw_password": {
 			"type": "secureString",
@@ -111,9 +123,25 @@
 			"type": "string",
 			"defaultValue": "Agni"
 		},
+		"LS_sqlserver_adls_dw_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsdevdubbyproject.dfs.core.windows.net/"
+		},
 		"LS_sqlserver_child_if_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://adlsdevdubbyproject.dfs.core.windows.net/"
+		},
+		"LS_sqlserver_max_value_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "Agni\\SQLEXPRESS"
+		},
+		"LS_sqlserver_max_value_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "RetailDW_Dev"
+		},
+		"LS_sqlserver_max_value_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "Agni"
 		},
 		"LS_sqlserver_to_adls_properties_typeProperties_server": {
 			"type": "string",
@@ -162,6 +190,10 @@
 		"LS_sqlserver_watermark_lkup_properties_typeProperties_userName": {
 			"type": "string",
 			"defaultValue": "Agni"
+		},
+		"LS_sqlsever_DataLakeStorage1_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsdevdubbyproject.dfs.core.windows.net/"
 		},
 		"LS_stopredprocedure_dw_properties_typeProperties_server": {
 			"type": "string",
@@ -365,6 +397,27 @@
 			"dependsOn": []
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/LS_sqlserver_adls_dw')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobFS",
+				"typeProperties": {
+					"url": "[parameters('LS_sqlserver_adls_dw_properties_typeProperties_url')]",
+					"accountKey": {
+						"type": "SecureString",
+						"value": "[parameters('LS_sqlserver_adls_dw_accountKey')]"
+					}
+				},
+				"connectVia": {
+					"referenceName": "integrationRuntime1",
+					"type": "IntegrationRuntimeReference"
+				}
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/LS_sqlserver_child_if')]",
 			"type": "Microsoft.DataFactory/factories/linkedServices",
 			"apiVersion": "2018-06-01",
@@ -377,6 +430,32 @@
 					"accountKey": {
 						"type": "SecureString",
 						"value": "[parameters('LS_sqlserver_child_if_accountKey')]"
+					}
+				},
+				"connectVia": {
+					"referenceName": "integrationRuntime1",
+					"type": "IntegrationRuntimeReference"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/LS_sqlserver_max_value')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "SqlServer",
+				"typeProperties": {
+					"server": "[parameters('LS_sqlserver_max_value_properties_typeProperties_server')]",
+					"database": "[parameters('LS_sqlserver_max_value_properties_typeProperties_database')]",
+					"encrypt": "mandatory",
+					"trustServerCertificate": true,
+					"authenticationType": "SQL",
+					"userName": "[parameters('LS_sqlserver_max_value_properties_typeProperties_userName')]",
+					"password": {
+						"type": "SecureString",
+						"value": "[parameters('LS_sqlserver_max_value_password')]"
 					}
 				},
 				"connectVia": {
@@ -485,6 +564,27 @@
 					"password": {
 						"type": "SecureString",
 						"value": "[parameters('LS_sqlserver_watermark_lkup_password')]"
+					}
+				},
+				"connectVia": {
+					"referenceName": "integrationRuntime1",
+					"type": "IntegrationRuntimeReference"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/LS_sqlsever_DataLakeStorage1')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobFS",
+				"typeProperties": {
+					"url": "[parameters('LS_sqlsever_DataLakeStorage1_properties_typeProperties_url')]",
+					"accountKey": {
+						"type": "SecureString",
+						"value": "[parameters('LS_sqlsever_DataLakeStorage1_accountKey')]"
 					}
 				},
 				"connectVia": {
@@ -826,129 +926,6 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/linkedServices/LS_stopredprocedure_dw')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/pipeline1')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"activities": [
-					{
-						"name": "Lookup_adls",
-						"type": "Lookup",
-						"dependsOn": [],
-						"policy": {
-							"timeout": "0.12:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"source": {
-								"type": "DelimitedTextSource",
-								"storeSettings": {
-									"type": "AzureBlobStorageReadSettings",
-									"recursive": true,
-									"enablePartitionDiscovery": false
-								},
-								"formatSettings": {
-									"type": "DelimitedTextReadSettings"
-								}
-							},
-							"dataset": {
-								"referenceName": "DelimitedText2",
-								"type": "DatasetReference",
-								"parameters": {}
-							},
-							"firstRowOnly": false
-						}
-					},
-					{
-						"name": "Filter1",
-						"type": "Filter",
-						"dependsOn": [
-							{
-								"activity": "Lookup_adls",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							}
-						],
-						"userProperties": [],
-						"typeProperties": {
-							"items": {
-								"value": "@activity('Lookup_adls').output.value",
-								"type": "Expression"
-							},
-							"condition": {
-								"value": "@or(equals(item().SIC_code, '1110'), equals(item().SIC_code, '1120'))",
-								"type": "Expression"
-							}
-						}
-					}
-				],
-				"policy": {
-					"elapsedTimeMetric": {}
-				},
-				"annotations": [],
-				"lastPublishTime": "2026-07-08T10:06:55Z"
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/DS_LKUP_MAX_VALUE')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "LS_LKUP_MAX_VALUE",
-					"type": "LinkedServiceReference"
-				},
-				"parameters": {
-					"TableSchema": {
-						"type": "string"
-					},
-					"TableName": {
-						"type": "string"
-					}
-				},
-				"annotations": [],
-				"type": "SqlServerTable",
-				"schema": [],
-				"typeProperties": {
-					"schema": {
-						"value": "@dataset().TableSchema",
-						"type": "Expression"
-					},
-					"table": {
-						"value": "@dataset().TableName",
-						"type": "Expression"
-					}
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/LS_LKUP_MAX_VALUE')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/DS_SQLSERVER_TBLLKUP')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "LS_sqlserver_watermark_lkup",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "SqlServerTable",
-				"schema": [],
-				"typeProperties": {}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/LS_sqlserver_watermark_lkup')]"
 			]
 		}
 	]

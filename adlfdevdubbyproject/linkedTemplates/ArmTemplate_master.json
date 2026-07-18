@@ -79,9 +79,17 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'LS_sqlserver_adls_childpipeline'"
 		},
+		"LS_sqlserver_adls_dw_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_sqlserver_adls_dw'"
+		},
 		"LS_sqlserver_child_if_accountKey": {
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'LS_sqlserver_child_if'"
+		},
+		"LS_sqlserver_max_value_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'LS_sqlserver_max_value'"
 		},
 		"LS_sqlserver_to_adls_password": {
 			"type": "secureString",
@@ -98,6 +106,10 @@
 		"LS_sqlserver_watermark_lkup_password": {
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'LS_sqlserver_watermark_lkup'"
+		},
+		"LS_sqlsever_DataLakeStorage1_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_sqlsever_DataLakeStorage1'"
 		},
 		"LS_stopredprocedure_dw_password": {
 			"type": "secureString",
@@ -183,9 +195,25 @@
 			"type": "string",
 			"defaultValue": "Agni"
 		},
+		"LS_sqlserver_adls_dw_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsdevdubbyproject.dfs.core.windows.net/"
+		},
 		"LS_sqlserver_child_if_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://adlsdevdubbyproject.dfs.core.windows.net/"
+		},
+		"LS_sqlserver_max_value_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "Agni\\SQLEXPRESS"
+		},
+		"LS_sqlserver_max_value_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "RetailDW_Dev"
+		},
+		"LS_sqlserver_max_value_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "Agni"
 		},
 		"LS_sqlserver_to_adls_properties_typeProperties_server": {
 			"type": "string",
@@ -234,6 +262,10 @@
 		"LS_sqlserver_watermark_lkup_properties_typeProperties_userName": {
 			"type": "string",
 			"defaultValue": "Agni"
+		},
+		"LS_sqlsever_DataLakeStorage1_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsdevdubbyproject.dfs.core.windows.net/"
 		},
 		"LS_stopredprocedure_dw_properties_typeProperties_server": {
 			"type": "string",
@@ -364,8 +396,14 @@
 					"LS_sqlserver_adls_childpipeline_password": {
 						"value": "[parameters('LS_sqlserver_adls_childpipeline_password')]"
 					},
+					"LS_sqlserver_adls_dw_accountKey": {
+						"value": "[parameters('LS_sqlserver_adls_dw_accountKey')]"
+					},
 					"LS_sqlserver_child_if_accountKey": {
 						"value": "[parameters('LS_sqlserver_child_if_accountKey')]"
+					},
+					"LS_sqlserver_max_value_password": {
+						"value": "[parameters('LS_sqlserver_max_value_password')]"
 					},
 					"LS_sqlserver_to_adls_password": {
 						"value": "[parameters('LS_sqlserver_to_adls_password')]"
@@ -378,6 +416,9 @@
 					},
 					"LS_sqlserver_watermark_lkup_password": {
 						"value": "[parameters('LS_sqlserver_watermark_lkup_password')]"
+					},
+					"LS_sqlsever_DataLakeStorage1_accountKey": {
+						"value": "[parameters('LS_sqlsever_DataLakeStorage1_accountKey')]"
 					},
 					"LS_stopredprocedure_dw_password": {
 						"value": "[parameters('LS_stopredprocedure_dw_password')]"
@@ -424,8 +465,20 @@
 					"LS_sqlserver_adls_childpipeline_properties_typeProperties_userName": {
 						"value": "[parameters('LS_sqlserver_adls_childpipeline_properties_typeProperties_userName')]"
 					},
+					"LS_sqlserver_adls_dw_properties_typeProperties_url": {
+						"value": "[parameters('LS_sqlserver_adls_dw_properties_typeProperties_url')]"
+					},
 					"LS_sqlserver_child_if_properties_typeProperties_url": {
 						"value": "[parameters('LS_sqlserver_child_if_properties_typeProperties_url')]"
+					},
+					"LS_sqlserver_max_value_properties_typeProperties_server": {
+						"value": "[parameters('LS_sqlserver_max_value_properties_typeProperties_server')]"
+					},
+					"LS_sqlserver_max_value_properties_typeProperties_database": {
+						"value": "[parameters('LS_sqlserver_max_value_properties_typeProperties_database')]"
+					},
+					"LS_sqlserver_max_value_properties_typeProperties_userName": {
+						"value": "[parameters('LS_sqlserver_max_value_properties_typeProperties_userName')]"
 					},
 					"LS_sqlserver_to_adls_properties_typeProperties_server": {
 						"value": "[parameters('LS_sqlserver_to_adls_properties_typeProperties_server')]"
@@ -462,6 +515,9 @@
 					},
 					"LS_sqlserver_watermark_lkup_properties_typeProperties_userName": {
 						"value": "[parameters('LS_sqlserver_watermark_lkup_properties_typeProperties_userName')]"
+					},
+					"LS_sqlsever_DataLakeStorage1_properties_typeProperties_url": {
+						"value": "[parameters('LS_sqlsever_DataLakeStorage1_properties_typeProperties_url')]"
 					},
 					"LS_stopredprocedure_dw_properties_typeProperties_server": {
 						"value": "[parameters('LS_stopredprocedure_dw_properties_typeProperties_server')]"

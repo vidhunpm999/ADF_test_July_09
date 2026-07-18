@@ -59,7 +59,13 @@
 		"LS_sqlserver_adls_childpipeline_password": {
 			"value": ""
 		},
+		"LS_sqlserver_adls_dw_accountKey": {
+			"value": ""
+		},
 		"LS_sqlserver_child_if_accountKey": {
+			"value": ""
+		},
+		"LS_sqlserver_max_value_password": {
 			"value": ""
 		},
 		"LS_sqlserver_to_adls_password": {
@@ -72,6 +78,9 @@
 			"value": ""
 		},
 		"LS_sqlserver_watermark_lkup_password": {
+			"value": ""
+		},
+		"LS_sqlsever_DataLakeStorage1_accountKey": {
 			"value": ""
 		},
 		"LS_stopredprocedure_dw_password": {
@@ -137,8 +146,20 @@
 		"LS_sqlserver_adls_childpipeline_properties_typeProperties_userName": {
 			"value": "Agni"
 		},
+		"LS_sqlserver_adls_dw_properties_typeProperties_url": {
+			"value": "https://adlsdevdubbyproject.dfs.core.windows.net/"
+		},
 		"LS_sqlserver_child_if_properties_typeProperties_url": {
 			"value": "https://adlsdevdubbyproject.dfs.core.windows.net/"
+		},
+		"LS_sqlserver_max_value_properties_typeProperties_server": {
+			"value": "Agni\\SQLEXPRESS"
+		},
+		"LS_sqlserver_max_value_properties_typeProperties_database": {
+			"value": "RetailDW_Dev"
+		},
+		"LS_sqlserver_max_value_properties_typeProperties_userName": {
+			"value": "Agni"
 		},
 		"LS_sqlserver_to_adls_properties_typeProperties_server": {
 			"value": "Agni\\SQLEXPRESS"
@@ -175,6 +196,9 @@
 		},
 		"LS_sqlserver_watermark_lkup_properties_typeProperties_userName": {
 			"value": "Agni"
+		},
+		"LS_sqlsever_DataLakeStorage1_properties_typeProperties_url": {
+			"value": "https://adlsdevdubbyproject.dfs.core.windows.net/"
 		},
 		"LS_stopredprocedure_dw_properties_typeProperties_server": {
 			"value": "Agni\\SQLEXPRESS"
