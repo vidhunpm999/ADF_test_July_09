@@ -28,6 +28,10 @@
 							"TableSchema": {
 								"value": "@pipeline().parameters.TableSchema",
 								"type": "Expression"
+							},
+							"TableName": {
+								"value": "@pipeline().parameters.TableName",
+								"type": "Expression"
 							}
 						}
 					},
