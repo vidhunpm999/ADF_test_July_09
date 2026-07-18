@@ -1,0 +1,19 @@
+{
+	"name": "DS_sql_server_adls",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_sqlserver_adls_dw",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileSystem": "sqlservertoadls"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	}
+}
