@@ -597,7 +597,7 @@
 									}
 								}
 							},
-							"firstRowOnly": true
+							"firstRowOnly": false
 						}
 					},
 					{
@@ -1001,6 +1001,7 @@
 								"value": "@activity('LKUP_SQLTABLE_WATERMARK_DW').output.value",
 								"type": "Expression"
 							},
+							"isSequential": false,
 							"activities": [
 								{
 									"name": "Execute_child_1",
