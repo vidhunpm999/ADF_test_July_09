@@ -1,0 +1,20 @@
+{
+	"name": "SD_MAX_VALUE_1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_sqlserver_max_value",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"TableSchema": {
+				"type": "string"
+			},
+			"TableName": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": []
+	}
+}
