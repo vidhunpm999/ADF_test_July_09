@@ -56,6 +56,9 @@
 		"LS_sqlserver_adls_password": {
 			"value": ""
 		},
+		"LS_sqlserver_adls__accountKey": {
+			"value": ""
+		},
 		"LS_sqlserver_adls_childpipeline_password": {
 			"value": ""
 		},
@@ -136,6 +139,9 @@
 		},
 		"LS_sqlserver_adls_properties_typeProperties_userName": {
 			"value": "Agni"
+		},
+		"LS_sqlserver_adls__properties_typeProperties_url": {
+			"value": "https://adlsdevdubbyproject.dfs.core.windows.net/"
 		},
 		"LS_sqlserver_adls_childpipeline_properties_typeProperties_server": {
 			"value": "Agni\\SQLEXPRESS"

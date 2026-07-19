@@ -75,6 +75,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'LS_sqlserver_adls'"
 		},
+		"LS_sqlserver_adls__accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_sqlserver_adls_'"
+		},
 		"LS_sqlserver_adls_childpipeline_password": {
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'LS_sqlserver_adls_childpipeline'"
@@ -182,6 +186,10 @@
 		"LS_sqlserver_adls_properties_typeProperties_userName": {
 			"type": "string",
 			"defaultValue": "Agni"
+		},
+		"LS_sqlserver_adls__properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsdevdubbyproject.dfs.core.windows.net/"
 		},
 		"LS_sqlserver_adls_childpipeline_properties_typeProperties_server": {
 			"type": "string",
@@ -709,7 +717,7 @@
 									],
 									"outputs": [
 										{
-											"referenceName": "DS_sql_server_adls",
+											"referenceName": "Parquet3",
 											"type": "DatasetReference",
 											"parameters": {
 												"TableName": {
@@ -782,7 +790,7 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/SD_MAX_VALUE_1')]",
-				"[concat(variables('factoryId'), '/datasets/DS_sql_server_adls')]",
+				"[concat(variables('factoryId'), '/datasets/Parquet3')]",
 				"[concat(variables('factoryId'), '/pipelines/PL_stored_proedure')]"
 			]
 		},
@@ -1643,6 +1651,84 @@
 			]
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/Parquet3')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "LS_sqlserver_adls_",
+					"type": "LinkedServiceReference"
+				},
+				"parameters": {
+					"TableName": {
+						"type": "string"
+					}
+				},
+				"annotations": [],
+				"type": "Parquet",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"fileName": {
+							"value": "@concat(dataset().TableName,'_',formatDateTime(utcNow(),'yyyyMMddHHmmss'),'.parquet')",
+							"type": "Expression"
+						},
+						"folderPath": {
+							"value": "@concat(dataset().TableName,'/',formatDateTime(utcNow(),'yyyy/MM/dd'))",
+							"type": "Expression"
+						},
+						"fileSystem": "sqlservertoadls"
+					},
+					"compressionCodec": "snappy"
+				},
+				"schema": [
+					{
+						"name": "CustomerKey",
+						"type": "INT32"
+					},
+					{
+						"name": "CustomerID",
+						"type": "INT32"
+					},
+					{
+						"name": "FirstName",
+						"type": "UTF8"
+					},
+					{
+						"name": "LastName",
+						"type": "UTF8"
+					},
+					{
+						"name": "Email",
+						"type": "UTF8"
+					},
+					{
+						"name": "City",
+						"type": "UTF8"
+					},
+					{
+						"name": "Country",
+						"type": "UTF8"
+					},
+					{
+						"name": "StartDate",
+						"type": "DATE"
+					},
+					{
+						"name": "EndDate",
+						"type": "DATE"
+					},
+					{
+						"name": "IsCurrent",
+						"type": "BOOLEAN"
+					}
+				]
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/LS_sqlserver_adls_')]"
+			]
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/SD_MAX_VALUE_1')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -2143,6 +2229,29 @@
 					"password": {
 						"type": "SecureString",
 						"value": "[parameters('LS_sqlserver_adls_password')]"
+					}
+				},
+				"connectVia": {
+					"referenceName": "integrationRuntime1",
+					"type": "IntegrationRuntimeReference"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/integrationRuntimes/integrationRuntime1')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/LS_sqlserver_adls_')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobFS",
+				"typeProperties": {
+					"url": "[parameters('LS_sqlserver_adls__properties_typeProperties_url')]",
+					"accountKey": {
+						"type": "SecureString",
+						"value": "[parameters('LS_sqlserver_adls__accountKey')]"
 					}
 				},
 				"connectVia": {

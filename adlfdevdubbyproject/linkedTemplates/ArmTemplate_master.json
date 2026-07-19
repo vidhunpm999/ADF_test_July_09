@@ -75,6 +75,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'LS_sqlserver_adls'"
 		},
+		"LS_sqlserver_adls__accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_sqlserver_adls_'"
+		},
 		"LS_sqlserver_adls_childpipeline_password": {
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'LS_sqlserver_adls_childpipeline'"
@@ -182,6 +186,10 @@
 		"LS_sqlserver_adls_properties_typeProperties_userName": {
 			"type": "string",
 			"defaultValue": "Agni"
+		},
+		"LS_sqlserver_adls__properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsdevdubbyproject.dfs.core.windows.net/"
 		},
 		"LS_sqlserver_adls_childpipeline_properties_typeProperties_server": {
 			"type": "string",
@@ -393,6 +401,9 @@
 					"LS_sqlserver_adls_password": {
 						"value": "[parameters('LS_sqlserver_adls_password')]"
 					},
+					"LS_sqlserver_adls__accountKey": {
+						"value": "[parameters('LS_sqlserver_adls__accountKey')]"
+					},
 					"LS_sqlserver_adls_childpipeline_password": {
 						"value": "[parameters('LS_sqlserver_adls_childpipeline_password')]"
 					},
@@ -455,6 +466,9 @@
 					},
 					"LS_sqlserver_adls_properties_typeProperties_userName": {
 						"value": "[parameters('LS_sqlserver_adls_properties_typeProperties_userName')]"
+					},
+					"LS_sqlserver_adls__properties_typeProperties_url": {
+						"value": "[parameters('LS_sqlserver_adls__properties_typeProperties_url')]"
 					},
 					"LS_sqlserver_adls_childpipeline_properties_typeProperties_server": {
 						"value": "[parameters('LS_sqlserver_adls_childpipeline_properties_typeProperties_server')]"

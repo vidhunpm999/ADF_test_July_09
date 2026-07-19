@@ -27,6 +27,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'LS_sqlserver_adls'"
 		},
+		"LS_sqlserver_adls__accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_sqlserver_adls_'"
+		},
 		"LS_sqlserver_adls_childpipeline_password": {
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'LS_sqlserver_adls_childpipeline'"
@@ -110,6 +114,10 @@
 		"LS_sqlserver_adls_properties_typeProperties_userName": {
 			"type": "string",
 			"defaultValue": "Agni"
+		},
+		"LS_sqlserver_adls__properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsdevdubbyproject.dfs.core.windows.net/"
 		},
 		"LS_sqlserver_adls_childpipeline_properties_typeProperties_server": {
 			"type": "string",
@@ -361,6 +369,27 @@
 					"password": {
 						"type": "SecureString",
 						"value": "[parameters('LS_sqlserver_adls_password')]"
+					}
+				},
+				"connectVia": {
+					"referenceName": "integrationRuntime1",
+					"type": "IntegrationRuntimeReference"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/LS_sqlserver_adls_')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobFS",
+				"typeProperties": {
+					"url": "[parameters('LS_sqlserver_adls__properties_typeProperties_url')]",
+					"accountKey": {
+						"type": "SecureString",
+						"value": "[parameters('LS_sqlserver_adls__accountKey')]"
 					}
 				},
 				"connectVia": {
@@ -854,78 +883,6 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/linkedServices/LS_sqlserver_to_adls_sp')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/PL_stored_proedure')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "SP",
-				"activities": [
-					{
-						"name": "Stored procedure1",
-						"description": "SP",
-						"type": "SqlServerStoredProcedure",
-						"dependsOn": [],
-						"policy": {
-							"timeout": "0.12:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"storedProcedureName": "[[dbo].[UpdateWatermark]",
-							"storedProcedureParameters": {
-								"TableSchema": {
-									"value": {
-										"value": "@pipeline().parameters.TableSchema",
-										"type": "Expression"
-									},
-									"type": "String"
-								},
-								"TableName": {
-									"value": {
-										"value": "@pipeline().parameters.TableName",
-										"type": "Expression"
-									},
-									"type": "String"
-								},
-								"WatermarkColumn": {
-									"value": {
-										"value": "@pipeline().parameters.WatermarkColumn",
-										"type": "Expression"
-									},
-									"type": "String"
-								}
-							}
-						},
-						"linkedServiceName": {
-							"referenceName": "LS_stopredprocedure_dw",
-							"type": "LinkedServiceReference"
-						}
-					}
-				],
-				"policy": {
-					"elapsedTimeMetric": {}
-				},
-				"parameters": {
-					"TableSchema": {
-						"type": "string"
-					},
-					"TableName": {
-						"type": "string"
-					},
-					"WatermarkColumn": {
-						"type": "string"
-					}
-				},
-				"annotations": []
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/LS_stopredprocedure_dw')]"
 			]
 		}
 	]
