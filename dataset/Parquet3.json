@@ -1,0 +1,66 @@
+{
+	"name": "Parquet3",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_sqlserver_adls_",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"TableName": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "@concat(dataset().TableName,'/',formatDateTime(utcNow(),'yyyy/MM/dd’))",
+				"fileSystem": "sqlservertoadls"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": [
+			{
+				"name": "CustomerKey",
+				"type": "INT32"
+			},
+			{
+				"name": "CustomerID",
+				"type": "INT32"
+			},
+			{
+				"name": "FirstName",
+				"type": "UTF8"
+			},
+			{
+				"name": "LastName",
+				"type": "UTF8"
+			},
+			{
+				"name": "Email",
+				"type": "UTF8"
+			},
+			{
+				"name": "City",
+				"type": "UTF8"
+			},
+			{
+				"name": "Country",
+				"type": "UTF8"
+			},
+			{
+				"name": "StartDate",
+				"type": "DATE"
+			},
+			{
+				"name": "EndDate",
+				"type": "DATE"
+			},
+			{
+				"name": "IsCurrent",
+				"type": "BOOLEAN"
+			}
+		]
+	}
+}
